@@ -9,6 +9,12 @@
                     <div class="col-md-6">
                         <div class="product p-4">
                             <h5 class="text-uppercase">Music: {{$music->name}}</h5>
+                            @if($music->video_path)
+    <video controls>
+        <source src="{{ asset('storage/'.$music->video_path) }}" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
+@endif
                             <div class="price d-flex flex-row align-items-center">
                                 <div class="ml-2"> <small class="dis-price">Author: </small>
                                     <span>

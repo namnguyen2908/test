@@ -18,6 +18,7 @@ return new class extends Migration
             $table->foreignId('national_id')->constrained('nationals');
             $table->foreignId('category_id')->constrained('categories');
             $table->string('description');
+            $table->string('video_path')->nullable();
             $table->timestamps();
         });
     }

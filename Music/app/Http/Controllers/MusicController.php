@@ -49,6 +49,12 @@ class MusicController extends Controller
         $music->singer = $request->get('singer');
         $music->national_id = $request->national_id;
         $music->description = $request->get('description');
+        if ($request->hasFile('video')) {
+            $video = $request->file('video');
+            $videoPath = $video->store('videos'); // Lưu video vào thư mục 'storage/app/videos'
+            $music->video_path = $videoPath; // Lưu đường dẫn video vào CSDL
+            $music->save();
+        }
         $music->save();
         $music->authors()->attach($request->authors);
         return redirect('musics');
@@ -87,6 +93,11 @@ class MusicController extends Controller
         $music->authors()->sync($request->authors);
         $music->national_id = $request->national;
         $music->description = $request->get('description');
+        if ($request->hasFile('video')) {
+            $video = $request->file('video');
+            $videoPath = $video->store('videos');
+            $music->video_path = $videoPath;
+        }
         $music->save();
         return redirect('musics');
     }

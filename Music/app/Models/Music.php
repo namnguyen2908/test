@@ -9,7 +9,7 @@ class Music extends Model
 {
     use HasFactory;
     protected $table = 'musics';
-    protected $fillable = ['name', 'kindofmusic', 'singer', 'national_id', 'category_id', 'description'];
+    protected $fillable = ['name', 'kindofmusic', 'singer', 'national_id', 'category_id', 'description', 'video_path'];
     
     public function authors()
     {

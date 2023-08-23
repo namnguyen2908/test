@@ -1,7 +1,7 @@
 @extends ('layouts.app')
 @section ('title', 'ADD new Music')
 @section ('content')
-<form action="/musics" method="POST">
+<form action="/musics" method="POST" enctype="multipart/form-data">
     @csrf
     <div class="mb-3">
         <label for="" class="form-label">Name:</label>
@@ -27,6 +27,8 @@
             @endforeach
         </select> 
         <br>
+        <label for="video">Tải video lên:</label>
+    <input type="file" name="video">
         <label for="" class="form-label">Singer:</label>
         <input type="text" class="form-control" name="singer" id="singer" aria-describedby="helpId" placeholder="">
         <label for="" class="form-label">Description:</label>
